@@ -20,3 +20,14 @@ https://github.com/JauniusPinelis/Javascript-testing-course-2024
 - Swagger/OpenApi
 - Importance of documentation.
 - Postman install
+- Postman ecosystem
+- Postman collections and requests
+- Postman environments and variables.
+
+### Day 3
+
+- Postman tests
+- Chai syntax
+- Important swagger into Postman
+- Postman AI
+- Running Postman Collections
