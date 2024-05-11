@@ -1,0 +1,27 @@
+ Concepts:
+ 
+ - Basic Programming
+ - Testing Automation
+ - Basic Networks skills
+ - Api testing
+ - E2E testing
+ - Authentication (JWT/Api-key/Oauth2)
+ - Relational Databases (fetching data, checking results)
+ - SCRUM/Agile
+ - Load/stress/scalability testing
+ - Functional vs non-functional
+ - Different types of testing.
+ - CI/CD pipelines
+ - test coverage    
+
+ Tools:
+ - Cypress
+ - Playwright
+ - Swagger
+ - Postman
+ - PostgreSQL
+ - ReadyAPI (will investigate)
+ - JMeter
+ - Github actions
+ - Jest or Vitest
+ - Docker
