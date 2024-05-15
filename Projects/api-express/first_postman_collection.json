@@ -1,6 +1,6 @@
 {
 	"info": {
-		"_postman_id": "e4a05a8a-5a2e-4a88-9d13-e5fcd4c50d7b",
+		"_postman_id": "7c42e387-a7bb-4c04-907a-21867386940d",
 		"name": "First Postman collection",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "7556965"
@@ -8,16 +8,48 @@
 	"item": [
 		{
 			"name": "Get items",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"returns 200 status code\", () => {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"item list is not empty\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json).to.be.an('array').that.is.not.empty;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response json has name and id\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"\r",
+							"    json.forEach((item) => {\r",
+							"        pm.expect(item).to.have.property(\"id\")\r",
+							"        pm.expect(item).to.have.property(\"name\")\r",
+							"    })\r",
+							"})\r",
+							"\r",
+							"pm. test('response completes under 2s', () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/items",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/items",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"items"
 					]
@@ -27,12 +59,44 @@
 		},
 		{
 			"name": "Create item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"returns 201 status code\", () => {\r",
+							"    pm.response.to.have.status(201)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"it ruturns non empty object\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json).to.be.an('object').that.is.not.empty;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response json has name and id\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"\r",
+							"    pm.expect(json).to.have.property(\"id\")\r",
+							"    pm.expect(json).to.have.property(\"name\")\r",
+							"})\r",
+							"\r",
+							"pm. test('response completes under 2s', () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"name\": \"test\",\r\n    \"description\": \"some description\"\r\n}",
+					"raw": "{\r\n    \"id\": 3,\r\n    \"name\": \"test\",\r\n    \"description\": \"some description\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -40,12 +104,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/items",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/items",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"items"
 					]
@@ -55,6 +117,38 @@
 		},
 		{
 			"name": "Update Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"returns 200 status code\", () => {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"it returns non empty object\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json).to.be.an('object').that.is.not.empty;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response json has name and id\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"\r",
+							"    pm.expect(json).to.have.property(\"id\")\r",
+							"    pm.expect(json).to.have.property(\"name\")\r",
+							"})\r",
+							"\r",
+							"pm. test('response completes under 2s', () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "PUT",
 				"header": [],
@@ -68,14 +162,13 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/items",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/items/1",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
-						"items"
+						"items",
+						"1"
 					]
 				}
 			},
@@ -83,16 +176,46 @@
 		},
 		{
 			"name": "Get Item by id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"returns 200 status code\", () => {\r",
+							"    pm.response.to.have.status(200)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"it ruturns non empty object\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json).to.be.an('object').that.is.not.empty;\r",
+							"})\r",
+							"\r",
+							"pm.test(\"response json has name and id\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"\r",
+							"    pm.expect(json).to.have.property(\"id\")\r",
+							"    pm.expect(json).to.have.property(\"name\")\r",
+							"})\r",
+							"\r",
+							"pm. test('response completes under 2s', () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/items/1",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/items/1",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"items",
 						"1"
@@ -103,19 +226,41 @@
 		},
 		{
 			"name": "Delete Item",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"returns 204 status code\", () => {\r",
+							"    pm.response.to.have.status(204)\r",
+							"})\r",
+							"\r",
+							"pm.test(\"it returns empty object\", () => {\r",
+							"    pm.expect(pm.response.text()).to.be.empty;\r",
+							"})\r",
+							"\r",
+							"pm. test('response completes under 2s', () => {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(2000);\r",
+							"})\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
 			"request": {
 				"method": "DELETE",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/items/1",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/items/3",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"items",
-						"1"
+						"3"
 					]
 				}
 			},

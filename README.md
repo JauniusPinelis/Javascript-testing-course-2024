@@ -27,7 +27,22 @@ https://github.com/JauniusPinelis/Javascript-testing-course-2024
 ### Day 3
 
 - Postman tests
+- Postman tests: checking status code
+- Postman tests: checking content
+- Postman tests: performance testing, 
+Did request finish in particular time.
+- Test driven development (TDD), regression testing, fixing bugs.
 - Chai syntax
+- Running Postman Collections
+
+### Day 4
+
+- Order of running Postman test
 - Important swagger into Postman
 - Postman AI
-- Running Postman Collections
+- Newman
+- CI/CD
+- Github actions
+- GIT/Github
+- Newman HTML Report
+- newman integration with Githuv actions.

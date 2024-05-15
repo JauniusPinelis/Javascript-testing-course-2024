@@ -11,7 +11,14 @@ const port = 3000; // Port on which the server will listen
 app.use(express.json());
 
 // In-memory database to store items
-let items = [];
+let items = [{
+    id: 1,
+    name: "candy"
+},
+{
+    id: 2,
+    name: "Ice cream"
+}];
 
 // Swagger definition
 const swaggerOptions = {
@@ -102,7 +109,7 @@ app.get('/items', (req, res) => {
  */
 app.get('/items/:id', (req, res) => {
     const id = req.params.id;
-    const item = items.find(item => item.id === id);
+    const item = items.find(item => item.id == id);
     if (!item) {
         return res.status(404).json({ message: 'Item not found' });
     }
@@ -140,7 +147,7 @@ app.get('/items/:id', (req, res) => {
 app.put('/items/:id', (req, res) => {
     const id = req.params.id;
     const updatedItem = req.body;
-    const index = items.findIndex(item => item.id === id);
+    const index = items.findIndex(item => item.id == id);
     if (index === -1) {
         return res.status(404).json({ message: 'Item not found' });
     }
@@ -168,7 +175,7 @@ app.put('/items/:id', (req, res) => {
  */
 app.delete('/items/:id', (req, res) => {
     const id = req.params.id;
-    const index = items.findIndex(item => item.id === id);
+    const index = items.findIndex(item => item.id == id);
     if (index === -1) {
         return res.status(404).json({ message: 'Item not found' });
     }
