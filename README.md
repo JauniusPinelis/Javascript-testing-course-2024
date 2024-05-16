@@ -42,6 +42,7 @@ Did request finish in particular time.
 - Postman AI
 - Newman
 - CI/CD
+- Git/Github
 - Github actions
 - GIT/Github
 - Newman HTML Report

@@ -4,12 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "newman run petstore_collection.json"
+    "test": "newman run petstore_collection.json",
+    "test:report": "newman run petstore_collection.json -r htmlextra"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "newman": "^6.1.2"
+    "newman": "^6.1.2",
+    "newman-reporter-htmlextra": "^1.23.1"
   }
 }
