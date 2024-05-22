@@ -46,4 +46,14 @@ Did request finish in particular time.
 - Github actions
 - GIT/Github
 - Newman HTML Report
-- newman integration with Githuv actions.
+- newman integration with Githuc actions.
+
+## week 3
+
+## day 1
+- Creating React application with Chatgpt
+- Components of React application
+- Cypress e2e test basic
+- Cypress run application with a single command
+- Cypress best practices
+- Cypress advances cases testing
