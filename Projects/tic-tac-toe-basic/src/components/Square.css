@@ -1,0 +1,23 @@
+.square {
+    background: #fff;
+    border: 1px solid #999;
+    font-size: 36px;
+    font-weight: bold;
+    line-height: 40px;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .square:hover {
+    background: #f0f0f0;
+  }
+  
+  .square:focus {
+    outline: none;
+  }
+  
