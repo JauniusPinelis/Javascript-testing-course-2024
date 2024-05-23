@@ -21,11 +21,20 @@ describe('Loading main page', () => {
   })
 
   it('entering text into textbox and pressing the button populates the list', () => {
-    cy.get('.form-control').should('exist').type("test");
-    cy.contains('button', 'Add Todo').click();
+    cy.createTodo("test 1");
 
     cy.get('.list-group').children().should('have.length', 1);
   })
+
+  it("deleting todo functionality works", () => {
+    // arrange
+    cy.createTodo("test2");
+    // act
+    cy.contains("button", "Delete").click()
+    // assert
+    cy.get('.list-group').children().should('have.length', 0);
+  })
+
 })
 
 

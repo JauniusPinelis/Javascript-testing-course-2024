@@ -23,3 +23,8 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+
+Cypress.Commands.add('createTodo', (content) => {
+    cy.get('.form-control').should('exist').type(content);
+    cy.contains('button', 'Add Todo').click();
+});
