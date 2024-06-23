@@ -12,7 +12,6 @@ describe("transfer function", () => {
     /// Act
     const result = transfer('user1', 'user2', 1000, users)
 
-
     test("does update the balance", () => {
 
         /// Assert
