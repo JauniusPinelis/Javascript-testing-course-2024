@@ -57,3 +57,21 @@ Did request finish in particular time.
 - Cypress run application with a single command
 - Cypress best practices
 - Cypress advances cases testing
+
+## day 2
+- Api Security
+- Authentication for REST API
+- Api-key authentication
+- OAUTH2
+- bearer token
+- JWT
+- Authentication Provider
+- AUTH0
+
+## day 3
+
+- whitebox vs blackbox testing
+- e2e tests vs component and unit tests
+- tests written by developer
+- jest and supertest libraries.
+
